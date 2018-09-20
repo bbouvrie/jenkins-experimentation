@@ -14,7 +14,7 @@ pipeline {
 		xunit (
 		  tools: [
 		    QtTest(
-			  pattern: 'testResults.xml',
+			  pattern: 'testResults_*.xml',
 			  skipNoTestFiles: false,
 			  failIfNotNew: true,
 			  deleteOutputFiles: true,
