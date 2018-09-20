@@ -1,24 +1,14 @@
 pipeline {
-  agent any
+  agent {
+	label 'qt'
+  }
   stages {
     stage('build') {
-      agent {
-        node {
-          label 'qt'
-        }
-
-      }
       steps {
-        echo 'BUILD: Ping 2'
+        echo 'BUILD: Poging 3'
       }
     }
     stage('test') {
-      agent {
-        node {
-          label 'qt'
-        }
-
-      }
       steps {
         echo 'This is where the tests are being executed'
       }
