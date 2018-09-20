@@ -1,19 +1,30 @@
 pipeline {
   agent any
-  triggers {
-	// Poll version control every 5 minutes for changes.
-	pollSCM('*/5 * * * *')
-  }
   stages {
     stage('build') {
+      agent {
+        node {
+          label 'qt'
+        }
+
+      }
       steps {
         echo 'This is where building the source code happens'
       }
     }
     stage('test') {
+      agent {
+        node {
+          label 'qt'
+        }
+
+      }
       steps {
         echo 'This is where the tests are being executed'
       }
     }
+  }
+  triggers {
+    pollSCM('*/5 * * * *')
   }
 }
