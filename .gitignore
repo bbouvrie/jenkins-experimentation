@@ -1,6 +1,7 @@
 # Repository specific ignores:
 testResults.xml
 .gitattributes
+
 #=================================
 
 ## Ignore Visual Studio temporary files, build results, and
@@ -414,3 +415,7 @@ target_wrapper.*
 
 # QtCreator CMake
 CMakeLists.txt.user*
+
+#=================
+#gitignore exceptions
+!QtTestResultsCleaner.exe
