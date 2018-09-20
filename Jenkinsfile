@@ -2,7 +2,7 @@ pipeline {
   agent any
   triggers {
 	// Poll version control every 5 minutes for changes.
-	pollSCM('0 */5 * ? * *')
+	pollSCM('*/5 * * * *')
   }
   stages {
     stage('build') {
