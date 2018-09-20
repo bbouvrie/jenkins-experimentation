@@ -9,7 +9,7 @@ pipeline {
 
       }
       steps {
-        echo 'BUILD: Test to see if changes trigger build of pipeline properly'
+        echo 'BUILD: Ping 2'
       }
     }
     stage('test') {
