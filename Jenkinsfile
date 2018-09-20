@@ -10,7 +10,7 @@ pipeline {
     }
     stage('test') {
       steps {
-        echo 'This is where the tests are being executed'
+        bat 'masterclass-jenkins-test'
       }
     }
   }
