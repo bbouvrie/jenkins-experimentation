@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        echo 'BUILD: Poging 3'
+		bat 'masterclass-jenkins-compile.bat'
       }
     }
     stage('test') {
