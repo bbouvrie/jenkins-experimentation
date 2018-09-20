@@ -11,6 +11,20 @@ pipeline {
     stage('test') {
       steps {
         bat 'masterclass-jenkins-test'
+		xunit (
+		  tools: [
+		    QtTest(
+			  pattern: 'testResults.xml',
+			  skipNoTestFiles: false,
+			  failIfNotNew: true,
+			  deleteOutputFiles: true,
+			  stopProcessingIfError: true
+			)
+		  ],
+		  thresholds: [],
+		  thresholdMode : 1,
+		  testTimeMargin : '3000',
+		)
       }
     }
   }
