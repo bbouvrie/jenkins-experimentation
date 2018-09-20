@@ -9,7 +9,7 @@ pipeline {
 
       }
       steps {
-        echo 'This is where building the source code happens'
+        echo 'BUILD: Test to see if changes trigger build of pipeline properly'
       }
     }
     stage('test') {
