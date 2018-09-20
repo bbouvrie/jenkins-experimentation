@@ -1,5 +1,6 @@
 # Repository specific ignores:
 testResults.xml
+.gitattributes
 #=================================
 
 ## Ignore Visual Studio temporary files, build results, and
