@@ -1,5 +1,5 @@
 # Repository specific ignores:
-testResults.xml
+testResults*.xml
 .gitattributes
 
 #=================================

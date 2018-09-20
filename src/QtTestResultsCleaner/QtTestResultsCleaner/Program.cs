@@ -9,6 +9,7 @@ namespace QtTestResultsCleaner
 {
     class Program
     {
+        private static PartFilePathGenerator filePathsGenerator;
         static void Main(string[] args)
         {
             if(args.Length != 1)
@@ -20,21 +21,27 @@ namespace QtTestResultsCleaner
             {
                 throw new ArgumentException($"File '{filePath}' doesn't exist.");
             }
+            filePathsGenerator = new PartFilePathGenerator(filePath);
 
             string[] textContents = File.ReadAllLines(filePath);
 
-            IList<string> newTextContents = TrimSuperfluousXmlTags(textContents);
-
-            File.WriteAllLines(filePath, newTextContents);
+            SplitIntoCleanedUpFiles(textContents, filePath);
+            File.Delete(filePath);
         }
 
-        private static IList<string> TrimSuperfluousXmlTags(IReadOnlyList<string> lines)
+        private static void SplitIntoCleanedUpFiles(IReadOnlyList<string> originalFileContents, string filePath)
         {
-            var newTextContents = new List<string>();
-            newTextContents.Add(lines[0]); // Expected to be an <?xml tag
-            // Remove subsequent <?xml tags :
-            newTextContents.AddRange(lines.Where(line => !line.StartsWith("<?xml")));
-            return newTextContents;
+            var fileContents = new List<string>();
+            foreach(string line in originalFileContents)
+            {
+                if (line.StartsWith("<?xml") && fileContents.Any())
+                {
+                    File.WriteAllLines(filePathsGenerator.GetNewPartFilePath(), fileContents);
+                    fileContents.Clear();
+                }
+                fileContents.Add(line);
+            }
+            File.WriteAllLines(filePathsGenerator.GetNewPartFilePath(), fileContents);
         }
     }
 }
