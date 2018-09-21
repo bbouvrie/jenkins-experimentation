@@ -32,4 +32,7 @@ pipeline {
   triggers {
     pollSCM('H/5 * * * *')
   }
+  options {
+    timeout(time: 5, unit: 'MINUTES')
+  }
 }
