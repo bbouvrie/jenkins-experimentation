@@ -1,4 +1,4 @@
-#!groovy​
+#!/usr/bin/env groovy
 pipeline {
   agent {
 	label 'qt'
