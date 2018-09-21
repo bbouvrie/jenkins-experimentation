@@ -23,8 +23,7 @@ namespace QtTestResultsCleaner
 
         public string GetNewPartFilePath()
         {
-            string partName = $"_{currentPartNumber++}";
-            return Path.Combine(directory, $"{fileName}_{currentPartNumber}{extension}");
+            return Path.Combine(directory, $"{fileName}_{currentPartNumber++}{extension}");
         }
     }
 }
