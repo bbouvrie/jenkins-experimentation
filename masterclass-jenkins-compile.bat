@@ -11,5 +11,4 @@ mingw32-make "qmake_all"
 echo executing make 
 mingw32-make
 echo done building
-
-       
+cd ..
