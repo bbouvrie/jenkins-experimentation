@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-		bat 'masterclass-jenkins-compile.bat'
+		bat 'masterclass-jenkins-compile'
       }
     }
     stage('test') {
